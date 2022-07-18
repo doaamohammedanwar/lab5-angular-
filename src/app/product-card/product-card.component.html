@@ -1,0 +1,24 @@
+<div class="card h-100">
+    <img [src]="product.image" class="card-img-top" [alt]="product.title" />
+    <div class="card-body">
+      <a [routerLink]="['/product-details' , product.id]">
+        <h5 class="card-title">{{ product.title }}</h5>
+      </a>
+      <p class="card-text">
+        {{ product.category}}
+
+      </p>
+      <div [ngClass]="{'d-none': product.rating.count == 0}" class="d-flex justify-content-center" style="margin-top: -0.5rem">
+        <div [ngStyle]="{color: product.rating.rate > 3? 'green' : 'red'}">Rating: {{product.rating.count}}</div>
+      </div>
+      <!-- <p [ngClass]="counter>0 ? 'test1':'test2'">counter:{{counter|count}}</p> -->
+      <div><button class="btn btn-primary" (click)="goToDetails(product.id)">
+        Go to product details
+      </button></div><br>
+      
+      <div>
+      <button  class="btn btn-primary" (click)="addItemToCart()">Add to cart</button>
+    </div>
+    </div>
+  </div>
+  

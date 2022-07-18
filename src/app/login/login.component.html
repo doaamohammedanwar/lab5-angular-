@@ -1,0 +1,63 @@
+<form  #productForm="ngForm" (ngSubmit)="handleSubmitForm(productForm)"class="container" >
+    <!-- Email input -->
+    <div class="form-outline mb-4 ">
+      
+      <label class="form-label" for="form2Example1">Email address</label>
+      <input type="email" id="form2Example1" class="form-control"
+      ngModel
+      #emailName="ngModel"
+      name="emailName"
+      required
+     
+      pattern="([a-z0-9]+@[a-z]+\.[a-z]{2,3})" />
+      <div
+      id="emailNameHelp"
+      *ngIf="emailName.touched && emailName.invalid"
+      class="form-text text-danger"
+    >
+      <small *ngIf="emailName?.errors?.['required']"
+        >This field is required</small
+      >
+     
+      <small *ngIf="emailName?.errors?.['pattern']"
+        >Please enter a valid email</small
+      >
+    </div>
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      
+      <label class="form-label" for="form2Example2">Password</label>
+      <input type="password" id="form2Example2" class="form-control"  
+      ngModel
+      #password="ngModel"
+      name="password"
+      required/>
+      <div
+      id="passwordHelp"
+      *ngIf="password.touched && password.invalid"
+      class="form-text text-danger"
+    >
+      <small *ngIf="password?.errors?.['required']"
+        >This field is required</small
+      ></div>
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+       
+      </div>
+  
+     
+    </div>
+  
+    <!-- Submit button -->
+    <button type="button" class="btn btn-primary btn-block mb-4" [routerLink]="['']">Sign in</button>
+  
+    <!-- Register buttons -->
+     <div class="text-center">
+      <p>Not a member? <a [routerLink]="['/register']">Register</a></p> </div>
+     
+  </form>
